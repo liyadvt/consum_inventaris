@@ -17,7 +17,7 @@ export default function Navbar() {
         })
         .then(res => {
             setIsLogin(true);
-            setAuthUser(res.data);
+            setAuthUser(res.data.data);
             if (location.pathname === '/login'){
                 navigate('/profile')
             }
@@ -46,10 +46,10 @@ export default function Navbar() {
                             //cek status login ? cek role admin ? statement admin : statement staff : statement belum login
                             isLogin ? authUser['role'] === 'admin' ? (
                                 <>
-                                <Link to="/"><small className="text-white ms-3">Stuff</small></Link>
-                                <Link to="/"><small className="text-white ms-3">Inbound</small></Link>
-                                <Link to="/"><small className="text-white ms-3">Lending</small></Link>
-                                <Link to="/"><small className="text-white ms-3">User</small></Link>
+                                <Link to="/stuff"><small className="text-white ms-3">Stuff</small></Link>
+                                <Link to="/inbound"><small className="text-white ms-3">Inbound</small></Link>
+                                <Link to="/lending"><small className="text-white ms-3">Lending</small></Link>
+                                <Link to="/user"><small className="text-white ms-3">User</small></Link>
                                 </>
                             ) : (
                                 <Link to="/"><small className="text-white ms-3">Lending</small></Link>
